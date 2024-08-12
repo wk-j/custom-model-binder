@@ -20,8 +20,27 @@ public class UploadTests
     public async Task TestUpload()
     {
         var client = new MyWebApiClient("http://localhost:5000", new System.Net.Http.HttpClient());
-        var file = new System.IO.FileStream("test.txt", System.IO.FileMode.Open);
-        var result = await client.UploadAsync(file);
-        Assert.NotNull(result);
+        var file = new FileParameter(new System.IO.FileStream("../../../../../README.md", System.IO.FileMode.Open), "test.txt", "text/plain");
+        try
+        {
+            await client.UploadAsync(
+                file: file,
+                description: "Test Description",
+                category: "TestCategory",
+                uploadDate: DateTimeOffset.Now,
+                metadata: new Dictionary<string, string>() {
+                    { "key1", "value1" },
+                    { "key2", "value2" },
+                    { "key3", "value3" }
+                }
+            );
+        }
+        catch (MyWeb.Client.ApiException ex)
+        {
+            Console.WriteLine($"API Exception: {ex.Message}");
+            Console.WriteLine($"Status: {ex.StatusCode}");
+            Console.WriteLine($"Response: {ex.Response}");
+            throw;
+        }
     }
 }

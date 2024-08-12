@@ -6,7 +6,7 @@ class Program
     static async Task Main(string[] args)
     {
         // Path to the local swagger.json file
-        var swaggerJsonPath = "src/MyWeb/bin/Debug/net8.0/swagger.json";
+        var swaggerJsonPath = "src/swagger.json";
 
         // Check if the swagger.json file exists
         if (!File.Exists(swaggerJsonPath))

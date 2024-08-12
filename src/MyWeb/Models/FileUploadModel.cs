@@ -1,7 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+using MyWeb.ModelBinders;
 
 namespace MyWeb.Models;
 
+[ModelBinder(BinderType = typeof(FileUploadModelBinder))]
 public class FileUploadModel
 {
     [Required]

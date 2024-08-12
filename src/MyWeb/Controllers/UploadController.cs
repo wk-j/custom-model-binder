@@ -33,14 +33,16 @@ public class UploadController : ControllerBase
         _logger.LogInformation($"File {fileName} has been uploaded successfully. " +
                                $"Description: {model.Description}, " +
                                $"Category: {model.Category}, " +
-                               $"Upload Date: {model.UploadDate}");
+                               $"Upload Date: {model.UploadDate}, " +
+                               $"Metadata Count: {model.Metadata.Count}");
 
         return Ok(new
         {
             FileName = fileName,
             Description = model.Description,
             Category = model.Category,
-            UploadDate = model.UploadDate
+            UploadDate = model.UploadDate,
+            MetadataCount = model.Metadata.Count
         });
     }
 }
