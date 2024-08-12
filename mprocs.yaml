@@ -1,0 +1,8 @@
+procs:
+  myweb:
+    shell: dotnet run --project src/MyWeb
+    autostart: false
+
+  swagger:
+    shell: dotnet swagger tofile --output src/swagger.json src/MyWeb/bin/Debug/net8.0/MyWeb.dll v1
+    autostart: false
