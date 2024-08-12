@@ -1,0 +1,13 @@
+[package]
+name = "my-web"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+actix-web.workspace = true
+actix-multipart = "0.6"
+futures = "0.3"
+serde.workspace = true
+serde_json.workspace = true
+log = "0.4"
+env_logger = "0.10"

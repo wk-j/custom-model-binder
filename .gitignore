@@ -368,3 +368,5 @@ src/MyWeb/swagger.json
 
 # Uploaded files
 src/MyWeb/uploads/
+target
+uploads

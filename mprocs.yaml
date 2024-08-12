@@ -6,3 +6,7 @@ procs:
   swagger:
     shell: dotnet swagger tofile --output src/swagger.json src/MyWeb/bin/Debug/net8.0/MyWeb.dll v1
     autostart: false
+
+  my-web:
+    shell: cargo run --manifest-path app/my-web/Cargo.toml
+    autostart: false
